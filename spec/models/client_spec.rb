@@ -8,16 +8,15 @@ RSpec.describe Client, type: :model do
 	end
 
 	it 'has many api keys' do
-		subject = Client.reflect_on_association(:api
-			_keys)
+		subject = Client.reflect_on_association(:api_keys)
 		expect(subject).to_not be_nil
 		expect(subject.class_name).to eq('ApiKey')
 		expect(subject.macro).to eq(:has_many)
 	end
 
 	describe 'validations' do
-		it 'requires that a name is present' do
-			client.name = be_nil
+		it 'requires that a name be present' do
+			client.name = nil
 			expect(client).to_not be_valid
 		end
 	end

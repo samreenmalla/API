@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :api_key do
-  	association :client, strategy: build
+  	association :client, strategy: :build
   	sequence(:name) { |n| "User #{n}"}
 
   	trait :admin do
